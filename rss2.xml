@@ -61,9 +61,9 @@
       <category domain="http://example.com/categories/AOSP/">AOSP</category>
       
       
-      <category domain="http://example.com/tags/Android/">Android</category>
-      
       <category domain="http://example.com/tags/AOSP/">AOSP</category>
+      
+      <category domain="http://example.com/tags/Android/">Android</category>
       
       
       <comments>http://example.com/2021/07/15/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/#disqus_thread</comments>
@@ -89,9 +89,9 @@
       <category domain="http://example.com/categories/AOSP/">AOSP</category>
       
       
-      <category domain="http://example.com/tags/Android/">Android</category>
-      
       <category domain="http://example.com/tags/AOSP/">AOSP</category>
+      
+      <category domain="http://example.com/tags/Android/">Android</category>
       
       
       <comments>http://example.com/2021/07/15/Android%20AOSP%EF%BC%88%E4%B8%80%EF%BC%89%E6%BA%90%E7%A0%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD/#disqus_thread</comments>
