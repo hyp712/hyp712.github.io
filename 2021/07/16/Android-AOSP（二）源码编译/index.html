@@ -23,21 +23,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="整编整编，就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。 初始化编译环境进入项目目录，打开终端，输入命令： 1source build&#x2F;envsetup.sh">
+  <meta name="description" content="整编整编，就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。 准备编译环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android AOSP（二）源码编译">
 <meta property="og:url" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/index.html">
 <meta property="og:site_name" content="Brooks">
-<meta property="og:description" content="整编整编，就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。 初始化编译环境进入项目目录，打开终端，输入命令： 1source build&#x2F;envsetup.sh">
+<meta property="og:description" content="整编整编，就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。 准备编译环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210716133228747.png">
+<meta property="og:image" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210804103058313.png">
+<meta property="og:image" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210804102211546.png">
 <meta property="article:published_time" content="2021-07-16T10:31:01.000Z">
-<meta property="article:modified_time" content="2021-07-23T10:30:36.657Z">
+<meta property="article:modified_time" content="2021-08-04T02:34:44.016Z">
 <meta property="article:author" content="Brooks">
 <meta property="article:tag" content="AOSP">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210716133228747.png">
+<meta name="twitter:image" content="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210804103058313.png">
 
 <link rel="canonical" href="http://example.com/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/">
 
@@ -242,7 +243,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-23 18:30:36" itemprop="dateModified" datetime="2021-07-23T18:30:36+08:00">2021-07-23</time>
+                <time title="修改时间：2021-08-04 10:34:44" itemprop="dateModified" datetime="2021-08-04T10:34:44+08:00">2021-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,10 +276,16 @@
 
       
         <h1 id="整编"><a href="#整编" class="headerlink" title="整编"></a>整编</h1><p>整编，就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。</p>
+<h2 id="准备编译环境"><a href="#准备编译环境" class="headerlink" title="准备编译环境"></a><strong>准备编译环境</strong></h2><span id="more"></span>
+
+<p><strong>1.安装 openjdk</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.安装以下依赖包：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip</span><br></pre></td></tr></table></figure>
+
 <h2 id="初始化编译环境"><a href="#初始化编译环境" class="headerlink" title="初始化编译环境"></a>初始化编译环境</h2><p>进入项目目录，打开终端，输入命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source build/envsetup.sh</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
 
 <p>编译前删除build文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clobber</span><br></pre></td></tr></table></figure>
@@ -309,20 +316,16 @@
 <p>开始编译输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">brooks@brooks-Mi-Pro:~/aosp$ make -j6</span><br><span class="line">09:47:02 ************************************************************</span><br><span class="line">09:47:02 You are building on a machine with 15.5GB of RAM</span><br><span class="line">09:47:02 </span><br><span class="line">09:47:02 The minimum required amount of free memory is around 16GB,</span><br><span class="line">09:47:02 and even with that, some configurations may not work.</span><br><span class="line">09:47:02 </span><br><span class="line">09:47:02 If you run into segfaults or other errors, try reducing your</span><br><span class="line">09:47:02 -j value.</span><br><span class="line">09:47:02 ************************************************************</span><br><span class="line">build/make/core/soong_config.mk:195: warning: BOARD_PLAT_PUBLIC_SEPOLICY_DIR has been deprecated. Us</span><br><span class="line">e SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS instead.</span><br><span class="line">build/make/core/soong_config.mk:196: warning: BOARD_PLAT_PRIVATE_SEPOLICY_DIR has been deprecated. U</span><br><span class="line">se SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS instead.</span><br><span class="line">============================================</span><br><span class="line">PLATFORM_VERSION_CODENAME=T</span><br><span class="line">PLATFORM_VERSION=T</span><br><span class="line">TARGET_PRODUCT=aosp_x86_64</span><br><span class="line">TARGET_BUILD_VARIANT=eng</span><br><span class="line">TARGET_BUILD_TYPE=release</span><br><span class="line">TARGET_ARCH=x86_64</span><br><span class="line">TARGET_ARCH_VARIANT=x86_64</span><br><span class="line">TARGET_2ND_ARCH=x86</span><br><span class="line">TARGET_2ND_ARCH_VARIANT=x86_64</span><br><span class="line">HOST_ARCH=x86_64</span><br><span class="line">HOST_2ND_ARCH=x86</span><br><span class="line">HOST_OS=linux</span><br><span class="line">HOST_OS_EXTRA=Linux-5.8.0-59-generic-x86_64-Ubuntu-20.04.2-LTS</span><br><span class="line">HOST_CROSS_OS=windows</span><br><span class="line">HOST_CROSS_ARCH=x86</span><br><span class="line">HOST_CROSS_2ND_ARCH=x86_64</span><br><span class="line">HOST_BUILD_TYPE=release</span><br><span class="line">BUILD_ID=AOSP.MASTER</span><br><span class="line">OUT_DIR=out</span><br><span class="line"></span><br><span class="line">PRODUCT_SOONG_NAMESPACES=device/generic/goldfish device/generic/goldfish-opengl hardware/google/camera hardware/google/camera/devices/EmulatedCamera</span><br><span class="line">============================================</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="编译成功-大概花费时长：5h"><a href="#编译成功-大概花费时长：5h" class="headerlink" title="编译成功-大概花费时长：5h"></a>编译成功-大概花费时长：5h</h2><p>第一次编译比较慢，大概5小时左右，编译n次才通过，最后一次 1:43</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Companion.getCachedEstimateIfAvailable(android.content.Context) and 3 other contexts)</span><br><span class="line"><span class="meta">[100%</span><span class="bash"> 11936/11936] Target vbmeta image: out/target/product/generic_x86_64/vbmeta.img<span class="comment">#### build completed successfully (01:43:43 (hh:mm:ss)) ####</span></span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210716133228747.png" alt="image-20210716133228747"></p>
+<p><strong>编译错误参考</strong>：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8ec0f1f1863a">https://www.jianshu.com/p/8ec0f1f1863a</a></p>
+<h2 id="编译成功-大概花费时长：5h"><a href="#编译成功-大概花费时长：5h" class="headerlink" title="编译成功-大概花费时长：5h"></a>编译成功-大概花费时长：5h</h2><p>第一次编译比较慢，大概5小时左右，编译n次才通过</p>
+<p><img src="/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210804103058313.png" alt="image-20210804103058313"></p>
 <h2 id="运行模拟器"><a href="#运行模拟器" class="headerlink" title="运行模拟器"></a>运行模拟器</h2><p>在编译完成之后,就可以通过以下命令运行Android虚拟机了，命令如下:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source build/envsetup.sh</span><br><span class="line">lunch 31</span><br><span class="line">emulator  #如果编译后运行，直接使用此命令</span><br></pre></td></tr></table></figure>
 
-<p>注：模拟器一直运行失败，问题还未解决~</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brooks@brooks-Mi-Pro:~/aosp$ emulator</span><br><span class="line">emulator: Android emulator version 30.7.4.0 (build_id 7479360) (CL:N/A)</span><br><span class="line">emulator: WARNING: encryption is off</span><br><span class="line">handleCpuAcceleration: feature check for hvf</span><br><span class="line">cannot add library /home/brooks/aosp/prebuilts/android-emulator/linux-x86_64/qemu/linux-x86_64/lib64/vulkan/libvulkan.so: failed</span><br><span class="line">added library /home/brooks/aosp/prebuilts/android-emulator/linux-x86_64/lib64/vulkan/libvulkan.so</span><br><span class="line">INTEL-MESA: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">emulator: WARNING: Couldn&#x27;t find crash service executable /home/brooks/aosp-resource/aosp/prebuilts/android-emulator/linux-x86_64/emulator64-crash-service</span><br><span class="line">emulator: WARNING: system partition size adjusted to match image file (2562 MB &gt; 800 MB)</span><br><span class="line">Your emulator is out of date, please update by launching Android Studio:</span><br><span class="line"> - Start Android Studio</span><br><span class="line"> - Select menu &quot;Tools &gt; Android &gt; SDK Manager&quot;</span><br><span class="line"> - Click &quot;SDK Tools&quot; tab</span><br><span class="line"> - Check &quot;Android Emulator&quot; checkbox</span><br><span class="line"> - Click &quot;OK&quot;</span><br><span class="line"></span><br><span class="line">emulator: INFO: boot completed</span><br></pre></td></tr></table></figure>
 
-
-
+<p><img src="/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/image-20210804102211546.png" alt="image-20210804102211546"></p>
+<p><strong>注：</strong>模拟器一直运行失败，各种错误解决不了。建议从官网下载aosp，然后重新编译。</p>
 <p>模拟器运行需要四个文件，分别是：</p>
 <ul>
 <li>Linux Kernel</li>
@@ -330,7 +333,7 @@
 <li>userdata.img</li>
 <li>ramdisk.img</li>
 </ul>
-<p>上面我 lunch 命令时选择的是 aosp_x86_64-eng，因此 linux 默认使用的 AOSP/prebuilds/qemu-kernel/x86_64/kernel-qemu 下的 kernel-qemu，而其他文件则是使用的 AOSP/out/target/product/generic_x86 目录下的 system.img、userdata.img、ramdisk.img。</p>
+<p>上面我 lunch 命令时选择的是 aosp_x86_64-eng，因此 linux 默认使用的 AOSP/prebuilds/qemu-kernel/x86_64/kernel-qemu 下的 kernel-qemu，而其他文件则是使用的 AOSP/out/target/product/generic_x86 目录下的 system.img、userdata.img、ramdisk.img</p>
 <p><strong>感谢：</strong></p>
 <p><a target="_blank" rel="noopener" href="http://wuxiaolong.me/2018/07/25/AOSP2/">http://wuxiaolong.me/2018/07/25/AOSP2/</a><br><a target="_blank" rel="noopener" href="https://source.android.com/setup/build/building">https://source.android.com/setup/build/building</a><br><a target="_blank" rel="noopener" href="http://liuwangshu.cn/framework/aosp/3-compiling-aosp.html">http://liuwangshu.cn/framework/aosp/3-compiling-aosp.html</a></p>
 
@@ -463,7 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E7%BC%96"><span class="nav-number">1.</span> <span class="nav-text">整编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">初始化编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%BC%96%E8%AF%91%E7%9B%AE%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">选择编译目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91"><span class="nav-number">1.3.</span> <span class="nav-text">开始编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%88%90%E5%8A%9F-%E5%A4%A7%E6%A6%82%E8%8A%B1%E8%B4%B9%E6%97%B6%E9%95%BF%EF%BC%9A5h"><span class="nav-number">1.4.</span> <span class="nav-text">编译成功-大概花费时长：5h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">1.5.</span> <span class="nav-text">运行模拟器</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E7%BC%96"><span class="nav-number">1.</span> <span class="nav-text">整编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">准备编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.</span> <span class="nav-text">初始化编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%BC%96%E8%AF%91%E7%9B%AE%E6%A0%87"><span class="nav-number">1.3.</span> <span class="nav-text">选择编译目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91"><span class="nav-number">1.4.</span> <span class="nav-text">开始编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%88%90%E5%8A%9F-%E5%A4%A7%E6%A6%82%E8%8A%B1%E8%B4%B9%E6%97%B6%E9%95%BF%EF%BC%9A5h"><span class="nav-number">1.5.</span> <span class="nav-text">编译成功-大概花费时长：5h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">运行模拟器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -550,7 +553,7 @@
   </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.7k字</span>
+  <span class="post-count">博客全站共6.8k字</span>
 </div>
 
 
