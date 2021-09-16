@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/07/18/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/img_rebase.png">
 <meta property="article:published_time" content="2021-07-18T06:30:04.000Z">
-<meta property="article:modified_time" content="2021-09-16T07:08:24.918Z">
+<meta property="article:modified_time" content="2021-09-16T07:38:38.431Z">
 <meta property="article:author" content="Brooks">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-16 15:08:24" itemprop="dateModified" datetime="2021-09-16T15:08:24+08:00">2021-09-16</time>
+                <time title="修改时间：2021-09-16 15:38:38" itemprop="dateModified" datetime="2021-09-16T15:38:38+08:00">2021-09-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -351,7 +351,7 @@
 
 <h2 id="删除未跟踪文件"><a href="#删除未跟踪文件" class="headerlink" title="删除未跟踪文件"></a>删除未跟踪文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git clean -f  <span class="comment"># 删除 untracked files</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git clean -fd  <span class="comment"># 连 untracked 的目录也一起删掉</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git clean -nfd <span class="comment"># -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span></span></span><br></pre></td></tr></table></figure>
 
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">&#x27;message here&#x27;</span>   <span class="comment">#用于提交暂存区的文件</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -a -m <span class="string">&#x27;message here&#x27;</span> <span class="comment">#用于提交跟踪过的文件,相当于省去了 git add</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">&#x27;message here&#x27;</span>   <span class="comment">#用于提交暂存区的文件</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -am <span class="string">&#x27;message here&#x27;</span> <span class="comment">#用于提交跟踪过的文件,相当于省去了 git add</span></span></span><br></pre></td></tr></table></figure>
 
 <h2 id="修改上次提交msg"><a href="#修改上次提交msg" class="headerlink" title="修改上次提交msg"></a>修改上次提交msg</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git commit --amend	 <span class="comment"># 首先使用命令后，会进入到vim 编辑器,修改注释信息，然后退出。</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit --amend -m [message]    <span class="comment"># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit --amend [file1] [file2] <span class="comment"># 重做上一次commit，并包括指定文件的新变化</span></span></span><br></pre></td></tr></table></figure>
 
@@ -406,8 +406,10 @@
 <p>6.将HEAD重置到指定的版本，并抛弃该版本之后的所有修改：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --hard &lt;commit&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>7.已经commit还未push，撤销</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git reset --soft HEAD^</span> </span><br><span class="line"></span><br><span class="line">--soft #不删除工作空间的改动代码 ，撤销commit，不撤销git add file</span><br><span class="line">--hard 删除工作空间的改动代码，撤销commit且撤销add</span><br></pre></td></tr></table></figure>
 
-
+<p>这样就成功撤销了commit，如果想要连着add也撤销的话，–soft改为–hard（删除工作空间的改动代码）。</p>
 <h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push</span>  </span><br><span class="line"><span class="meta">$</span><span class="bash"> git push &lt;origin&gt; &lt;branch&gt; <span class="comment">#如果添加多个仓库，指定仓库名称</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push origin develop  <span class="comment">#举例，提交远程origin仓库的develop分支</span></span></span><br></pre></td></tr></table></figure>
 
 
@@ -676,7 +678,7 @@
   </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.8k字</span>
+  <span class="post-count">博客全站共8.9k字</span>
 </div>
 
 
