@@ -23,21 +23,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="AOSP(Android Open Source Project) 代码库可为您提供所需信息和源代码，供您创建定制的 Android 操作系统版本，将设备和配件移植到 Android 平台。官网：https:&#x2F;&#x2F;source.android.google.cn&#x2F; 下载repoRepo Google开发的一个工具，整合多个 Git 代码库，自动执行 Android 开发工作流程的部分环节。不会取代">
+  <meta name="description" content="Android APTAndroid annotation process tool 是一种处理注释的工具，它对源代码文件进行检测找出其中的Annotation，使用Annotation进行额外的处理。基于 Java生成代码，利于注解生成新的文件，有一定的侵入性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android AOSP（一）源码和内核源码下载">
-<meta property="og:url" content="http://example.com/2021/07/16/Android%20AOSP%EF%BC%88%E4%B8%80%EF%BC%89%E6%BA%90%E7%A0%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:title" content="技术-简称">
+<meta property="og:url" content="http://example.com/2021/08/19/%E6%8A%80%E6%9C%AF-%E7%AE%80%E7%A7%B0/index.html">
 <meta property="og:site_name" content="Brooks">
-<meta property="og:description" content="AOSP(Android Open Source Project) 代码库可为您提供所需信息和源代码，供您创建定制的 Android 操作系统版本，将设备和配件移植到 Android 平台。官网：https:&#x2F;&#x2F;source.android.google.cn&#x2F; 下载repoRepo Google开发的一个工具，整合多个 Git 代码库，自动执行 Android 开发工作流程的部分环节。不会取代">
+<meta property="og:description" content="Android APTAndroid annotation process tool 是一种处理注释的工具，它对源代码文件进行检测找出其中的Annotation，使用Annotation进行额外的处理。基于 Java生成代码，利于注解生成新的文件，有一定的侵入性。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-16T02:30:01.000Z">
-<meta property="article:modified_time" content="2021-07-29T01:45:28.319Z">
+<meta property="article:published_time" content="2021-08-19T07:46:30.000Z">
+<meta property="article:modified_time" content="2021-09-16T10:01:40.805Z">
 <meta property="article:author" content="Brooks">
-<meta property="article:tag" content="AOSP">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/07/16/Android%20AOSP%EF%BC%88%E4%B8%80%EF%BC%89%E6%BA%90%E7%A0%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD/">
+<link rel="canonical" href="http://example.com/2021/08/19/%E6%8A%80%E6%9C%AF-%E7%AE%80%E7%A7%B0/">
 
 
 <script id="page-configurations">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>Android AOSP（一）源码和内核源码下载 | Brooks</title>
+  <title>技术-简称 | Brooks</title>
   
 
 
@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/16/Android%20AOSP%EF%BC%88%E4%B8%80%EF%BC%89%E6%BA%90%E7%A0%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/19/%E6%8A%80%E6%9C%AF-%E7%AE%80%E7%A7%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -223,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Android AOSP（一）源码和内核源码下载
+          技术-简称
         </h1>
 
         <div class="post-meta">
@@ -233,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-16 10:30:01" itemprop="dateCreated datePublished" datetime="2021-07-16T10:30:01+08:00">2021-07-16</time>
+              <time title="创建时间：2021-08-19 15:46:30" itemprop="dateCreated datePublished" datetime="2021-08-19T15:46:30+08:00">2021-08-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-29 09:45:28" itemprop="dateModified" datetime="2021-07-29T09:45:28+08:00">2021-07-29</time>
+                <time title="修改时间：2021-09-16 18:01:40" itemprop="dateModified" datetime="2021-09-16T18:01:40+08:00">2021-09-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,7 +248,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AOSP/" itemprop="url" rel="index"><span itemprop="name">AOSP</span></a>
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
                 </span>
             </span>
 
@@ -272,69 +272,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>AOSP(Android Open Source Project) 代码库可为您提供所需信息和源代码，供您创建定制的 Android 操作系统版本，将设备和配件移植到 Android 平台。官网：<a target="_blank" rel="noopener" href="https://source.android.google.cn/">https://source.android.google.cn/</a></p>
-<h1 id="下载repo"><a href="#下载repo" class="headerlink" title="下载repo"></a>下载repo</h1><p><a target="_blank" rel="noopener" href="https://gerrit.googlesource.com/git-repo/+/refs/heads/master/README.md">Repo</a> Google开发的一个工具，整合多个 Git 代码库，自动执行 Android 开发工作流程的部分环节。不会取代 Git，只是为了让您在 Android 环境中更轻松地使用 Git。</p>
+        <h1 id="Android-APT"><a href="#Android-APT" class="headerlink" title="Android APT"></a>Android APT</h1><p>Android annotation process tool 是一种处理注释的工具，它对源代码文件进行检测找出其中的Annotation，使用Annotation进行额外的处理。基于 Java生成代码，利于注解生成新的文件，有一定的侵入性。</p>
 <span id="more"></span>
 
-<p>ubuntu输入命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git  </span><br></pre></td></tr></table></figure>
+<h2 id="APT的处理要素："><a href="#APT的处理要素：" class="headerlink" title="APT的处理要素："></a>APT的处理要素：</h2><p>注解处理器（AbstractProcess）+代码处理（javaPoet）+处理器注册（AutoService）+apt</p>
+<h2 id="APT处理annotation的流程："><a href="#APT处理annotation的流程：" class="headerlink" title="APT处理annotation的流程："></a>APT处理annotation的流程：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 定义注解（如<span class="meta">@automain</span>）</span><br><span class="line"><span class="number">2.</span> 定义注解处理器</span><br><span class="line"><span class="number">3.</span> 在处理器里面完成处理方式，通常是生成java代码。</span><br><span class="line"><span class="number">4.</span> 注册处理器</span><br></pre></td></tr></table></figure>
 
-<p>配置环境变量:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/bin</span><br><span class="line">PATH=~/bin:$PATH</span><br></pre></td></tr></table></figure>
-
-<p>安装curl：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br></pre></td></tr></table></figure>
-
-<p>下载repo并设置权限：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo &gt; ~/bin/repo</span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
-
-<p>安装python:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h1><h2 id="下载源码《方法一》"><a href="#下载源码《方法一》" class="headerlink" title="下载源码《方法一》"></a>下载源码《方法一》</h2><p>建立工作目录:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir aosp</span><br><span class="line">cd aosp</span><br></pre></td></tr></table></figure>
-
-<p>初始化仓库:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest</span><br></pre></td></tr></table></figure>
-
-<p>初始化并指定版本:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b android-8.0.0_r15</span><br></pre></td></tr></table></figure>
-
-<p>同步源码树：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo sync</span><br></pre></td></tr></table></figure>
-
-<p>然后等待下载完毕,大概源码大小为 65G</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brooks@brooks-MiPro:~/aosp$ du -sh</span><br><span class="line">65G</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">我下载了N次，每次都会有小部分文件失败，然后编译，最终编译成功，但是模拟器跑步起来</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="下载源码《方法二》"><a href="#下载源码《方法二》" class="headerlink" title="下载源码《方法二》"></a>下载源码《方法二》</h2><p>方法一，任何网络故障大概率出现部分文件下载失败，强烈建议使用方法二。大概124G</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar # 下载初始化包</span><br><span class="line">tar xf aosp-latest.tar</span><br><span class="line">cd AOSP   # 解压得到的 AOSP 工程目录，此时只有一个隐藏的 .repo 目录</span><br><span class="line">repo sync # 正常同步一遍即可得到完整目录 或 repo sync -l 仅checkout代码</span><br></pre></td></tr></table></figure>
-
-<p>此后，每次只需运行 <code>repo sync</code> 即可保持同步。 <strong>我们强烈建议您保持每天同步，并尽量选择凌晨等低峰时间</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aosp-latest.tar                        100%[++++++++++===========================================================&gt;] 123.57G  3.27MB/s    用时 9h 9m s</span><br><span class="line"></span><br><span class="line">2021-07-23 08:40:22 (3.31 MB/s) - 已保存 “aosp-latest.tar” [132684083200/132684083200])</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="下载内核源码"><a href="#下载内核源码" class="headerlink" title="下载内核源码"></a>下载内核源码</h1><p>AOSP源码中并不包括内核源码，需要单独下载，内核源码有很多版本，比如common是通用的Linux内核，msm是用于使用高通MSM芯片的Android设备，goldfish是用于Android模拟器的内核源码，这里以goldfish为例。</p>
-<p>建立工作目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir kernel</span><br><span class="line">cd kernel</span><br></pre></td></tr></table></figure>
-
-<p>使用清华的镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://aosp.tuna.tsinghua.edu.cn/kernel/goldfish.git</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>大概率git下载失败，文件过大。网上搜增加git缓存-依然无效，后来想到国内gitee，借助它完美下载，速度超快。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">完美解决-下载速度快</span></span><br><span class="line">git clone https://gitee.com/gnosz/goldfish.git </span><br><span class="line"></span><br><span class="line">正克隆到 &#x27;goldfish&#x27;...</span><br><span class="line">remote: Enumerating objects: 6038180, done.</span><br><span class="line">remote: Counting objects: 100% (6038180/6038180), done.</span><br><span class="line">remote: Compressing objects: 100% (916276/916276), done.</span><br><span class="line">remote: Total 6038180 (delta 5082037), reused 6034994 (delta 5079268), pack-reused 0</span><br><span class="line">接收对象中: 100% (6038180/6038180), 1.29 GiB | 3.37 MiB/s, 完成.</span><br><span class="line">处理 delta 中: 100% (5082037/5082037), 完成.</span><br></pre></td></tr></table></figure>
-
-<p>这时kernel目录中会生成一个goldfish文件夹，进入后使用git命令查看有哪些内核版本分支可以下载：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cd goldfish</span><br><span class="line"></span><br><span class="line">brooks@MiPro:~/kernel/goldfish$ git branch -a</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master</span><br><span class="line">  remotes/origin/android-3.10</span><br><span class="line">  remotes/origin/android-3.18</span><br><span class="line">  remotes/origin/android-3.4</span><br><span class="line">  remotes/origin/android-4.14</span><br><span class="line">  remotes/origin/android-4.4</span><br><span class="line">  remotes/origin/android-goldfish-2.6.29</span><br><span class="line">  remotes/origin/android-goldfish-3.10</span><br><span class="line">  remotes/origin/android-goldfish-3.10-k-dev</span><br><span class="line">  remotes/origin/android-goldfish-3.10-l-mr1-dev</span><br><span class="line">  remotes/origin/android-goldfish-3.10-m-dev</span><br><span class="line">  remotes/origin/android-goldfish-3.10-n-dev</span><br><span class="line">  remotes/origin/android-goldfish-3.18</span><br><span class="line">  remotes/origin/android-goldfish-3.18-dev</span><br><span class="line">  remotes/origin/android-goldfish-3.4</span><br><span class="line">  remotes/origin/android-goldfish-3.4-l-mr1-dev</span><br><span class="line">  remotes/origin/android-goldfish-4.14-dev</span><br><span class="line">  remotes/origin/android-goldfish-4.14-dev.120914098</span><br><span class="line">  remotes/origin/android-goldfish-4.14-dev.20190417</span><br><span class="line">  remotes/origin/android-goldfish-4.14-dev.backup</span><br><span class="line">  remotes/origin/android-goldfish-4.4-dev</span><br><span class="line">  remotes/origin/android-goldfish-4.9-dev</span><br><span class="line">  remotes/origin/b12</span><br><span class="line">  remotes/origin/b120914098</span><br><span class="line">  remotes/origin/heads/for/android-goldfish-3.18-dev</span><br><span class="line">  remotes/origin/linux-goldfish-3.0-wip</span><br><span class="line">  remotes/origin/master</span><br><span class="line">  remotes/origin/test</span><br><span class="line">  remotes/origin/tparker-recovery</span><br></pre></td></tr></table></figure>
-
-<p>这里选择下载goldfish 3.4版本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout remotes/origin/android-goldfish-3.4</span><br><span class="line"></span><br><span class="line">git switch -c origin/android-goldfish-3.4</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>感谢：</strong></p>
-<p><a target="_blank" rel="noopener" href="http://liuwangshu.cn/framework/aosp/2-download-aosp.html">http://liuwangshu.cn/framework/aosp/2-download-aosp.html</a><br><a target="_blank" rel="noopener" href="https://source.android.google.cn/setup/start">https://source.android.google.cn/setup/start</a></p>
-
+<p> 优秀讲解：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903923233341453">https://juejin.cn/post/6844903923233341453</a></p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>AOP是Aspect Oriented Programming的缩写，即『面向切面编程』。它和OOP都是编程的不同思想，OOP即『面向对象编程』，它提倡的是将功能模块化，对象化，而AOP的思想，它提倡的是针对同一类问题的统一处理，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。</p>
+<p>常用技术：Aspectj ， ASM</p>
+<h1 id="ASM"><a href="#ASM" class="headerlink" title="ASM"></a>ASM</h1><p><a target="_blank" rel="noopener" href="https://asm.ow2.io/">ASM</a>是一个通用的Java字节码操作和分析框架。 它可以用于修改现有类或直接以二进制形式动态生成类。 ASM提供了一些常见的字节码转换和分析算法，可以从中构建自定义复杂转换和代码分析工具。ASM提供与其他Java字节码框架类似的功能，但专注于性能。 因为它的设计和实现尽可能小而且快，所以它非常适合在动态系统中使用。</p>
+<p><strong>核心类：</strong></p>
+<p>① ClassReader:该类用来解析编译过的class字节码文件。</p>
+<p>② ClassWriter:该类用来重新构建编译后的类，比如说修改类名、属性以及方法，甚至可以生成新的类的字节码文件。</p>
+<p>③ ClassAdapter:该类也实现了ClassVisitor接口，它将对它的方法调用委托给另一个ClassVisitor对象。</p>
+<h1 id="AspectJ"><a href="#AspectJ" class="headerlink" title="AspectJ"></a>AspectJ</h1><p> AspectJ 通过注解的形式来标注切入点、切入对象等，然后在代码编译期间将代码织入到java的字节码中。</p>
+<h1 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h1><h1 id="CI"><a href="#CI" class="headerlink" title="CI"></a>CI</h1><h1 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h1>
     </div>
 
     
@@ -349,7 +302,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2021/07/16/Android%20AOSP%EF%BC%88%E4%B8%80%EF%BC%89%E6%BA%90%E7%A0%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD/" title="Android AOSP（一）源码和内核源码下载">http://example.com/2021/07/16/Android AOSP（一）源码和内核源码下载/</a>
+    <a href="http://example.com/2021/08/19/%E6%8A%80%E6%9C%AF-%E7%AE%80%E7%A7%B0/" title="技术-简称">http://example.com/2021/08/19/技术-简称/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -389,8 +342,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/AOSP/" rel="tag"># AOSP</a>
               <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
         
@@ -399,12 +352,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/15/Hexo%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" rel="prev" title="Hexo入门指南">
-      <i class="fa fa-chevron-left"></i> Hexo入门指南
+    <a href="/2021/08/08/Android-Gradle-Plugin-%E5%85%A5%E9%97%A8/" rel="prev" title="Android Gradle Plugin 入门">
+      <i class="fa fa-chevron-left"></i> Android Gradle Plugin 入门
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/16/Android-AOSP%EF%BC%88%E4%BA%8C%EF%BC%89%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/" rel="next" title="Android AOSP（二）源码编译">
-      Android AOSP（二）源码编译 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/11/25/tmux%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" rel="next" title="tmux入门指南">
+      tmux入门指南 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -464,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDrepo"><span class="nav-number">1.</span> <span class="nav-text">下载repo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">下载源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E3%80%8A%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%8B"><span class="nav-number">2.1.</span> <span class="nav-text">下载源码《方法一》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E3%80%8A%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%8B"><span class="nav-number">2.2.</span> <span class="nav-text">下载源码《方法二》</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">下载内核源码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-APT"><span class="nav-number">1.</span> <span class="nav-text">Android APT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APT%E7%9A%84%E5%A4%84%E7%90%86%E8%A6%81%E7%B4%A0%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">APT的处理要素：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APT%E5%A4%84%E7%90%86annotation%E7%9A%84%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">APT处理annotation的流程：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOP"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASM"><span class="nav-number">3.</span> <span class="nav-text">ASM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AspectJ"><span class="nav-number">4.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IOC"><span class="nav-number">5.</span> <span class="nav-text">IOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CI"><span class="nav-number">6.</span> <span class="nav-text">CI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DI"><span class="nav-number">7.</span> <span class="nav-text">DI</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
