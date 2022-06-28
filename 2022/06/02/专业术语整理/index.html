@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="智能座舱领域专业术语DMSDriver Monitoring System 驾驶员检测系统 . 监测对象为Driver（驾驶员） 三大核心:  疲劳驾驶 , 分心检测 , 危险行为 OMSOccupancy Monitoring System，乘客检测系统. 监测对象为乘客 RMS后排盲区监测系统  IMSIn-cabin monitoring System 即汽车座舱的智能视觉监控系。既包括DM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专业术语整理">
+<meta property="og:url" content="http://example.com/2022/06/02/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Brooks">
+<meta property="og:description" content="智能座舱领域专业术语DMSDriver Monitoring System 驾驶员检测系统 . 监测对象为Driver（驾驶员） 三大核心:  疲劳驾驶 , 分心检测 , 危险行为 OMSOccupancy Monitoring System，乘客检测系统. 监测对象为乘客 RMS后排盲区监测系统  IMSIn-cabin monitoring System 即汽车座舱的智能视觉监控系。既包括DM">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-02T06:24:53.000Z">
+<meta property="article:modified_time" content="2022-06-21T12:35:02.137Z">
+<meta property="article:author" content="Brooks">
+<meta property="article:tag" content="汽车">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/06/02/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>专业术语整理 | Brooks</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Brooks" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a target="_blank" rel="noopener" href="https://github.com/hyp712" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Brooks</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">珍惜生命中的每一次冲动</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i>资源</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="comment fa-fw"></i>留言</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/02/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Brooks">
+      <meta itemprop="description" content="凡心所向，素履所往，生如逆旅，一苇以航。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brooks">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          专业术语整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-02 14:24:53" itemprop="dateCreated datePublished" datetime="2022-06-02T14:24:53+08:00">2022-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-21 20:35:02" itemprop="dateModified" datetime="2022-06-21T20:35:02+08:00">2022-06-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">专业术语</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="智能座舱领域专业术语"><a href="#智能座舱领域专业术语" class="headerlink" title="智能座舱领域专业术语"></a>智能座舱领域专业术语</h1><h2 id="DMS"><a href="#DMS" class="headerlink" title="DMS"></a>DMS</h2><p>Driver Monitoring System 驾驶员检测系统 . 监测对象为Driver（驾驶员）</p>
+<p>三大核心:  疲劳驾驶 , 分心检测 , 危险行为</p>
+<h2 id="OMS"><a href="#OMS" class="headerlink" title="OMS"></a>OMS</h2><p>Occupancy Monitoring System，乘客检测系统. 监测对象为乘客</p>
+<h2 id="RMS"><a href="#RMS" class="headerlink" title="RMS"></a>RMS</h2><p>后排盲区监测系统 </p>
+<h2 id="IMS"><a href="#IMS" class="headerlink" title="IMS"></a>IMS</h2><p>In-cabin monitoring System 即汽车座舱的智能视觉监控系。既包括DMS、OMS，也包括FACE ID、手势识别、体征监测、远程监控等。</p>
+<h2 id="IVI"><a href="#IVI" class="headerlink" title="IVI"></a>IVI</h2><p>In-Vehicle Infotainment 智能座舱的信息娱乐系统</p>
+<h2 id="IMU"><a href="#IMU" class="headerlink" title="IMU"></a>IMU</h2><p>Inertial Measurement Unit, 惯性测量单元</p>
+<h2 id="DVR"><a href="#DVR" class="headerlink" title="DVR"></a>DVR</h2><p>行车记录仪 </p>
+<h2 id="AVM"><a href="#AVM" class="headerlink" title="AVM"></a>AVM</h2><p>around view monitoring  即全景影像监测, 向驾驶员提供车辆周围360度范围内实时影像信息</p>
+<h2 id="HUD"><a href="#HUD" class="headerlink" title="HUD"></a>HUD</h2><p>Head Up Display 即抬头显示，又叫平视显示系统</p>
+<h2 id="HMI"><a href="#HMI" class="headerlink" title="HMI"></a>HMI</h2><p>Human Machine Interface 人机交互接口 </p>
+<h2 id="Box-Car"><a href="#Box-Car" class="headerlink" title="Box Car"></a>Box Car</h2><p>整车台架;</p>
+<h2 id="CAN"><a href="#CAN" class="headerlink" title="CAN"></a>CAN</h2><p>Controller Area Network 局域网控制器， can总线 </p>
+<h2 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h2><p>Autonomous Driving Domain, 自动驾驶域；</p>
+<h2 id="DCD"><a href="#DCD" class="headerlink" title="DCD"></a>DCD</h2><p>Digital Cockpit Domain, 智能座舱域；</p>
+<h2 id="VCCD"><a href="#VCCD" class="headerlink" title="VCCD"></a>VCCD</h2><p> Vehicle Central Control Domain, 整车控制域</p>
+<h2 id="AVP"><a href="#AVP" class="headerlink" title="AVP"></a>AVP</h2><p> Automated Valet Parking, 自动泊车</p>
+<h2 id="AEB"><a href="#AEB" class="headerlink" title="AEB"></a>AEB</h2><p> Autonomous Emergency Braking 自动紧急制动</p>
+<h2 id="ACC"><a href="#ACC" class="headerlink" title="ACC"></a>ACC</h2><p>Adaptive Cruise Control, 自适应巡航 </p>
+<h2 id="ADAS"><a href="#ADAS" class="headerlink" title="ADAS"></a>ADAS</h2><p>Advanced Driver Assistant System, 先进驾驶辅助系统</p>
+<h2 id="PA"><a href="#PA" class="headerlink" title="PA"></a>PA</h2><p>Parking Assistant 停车辅助 </p>
+<h2 id="TSP"><a href="#TSP" class="headerlink" title="TSP"></a>TSP</h2><p>Telematics Service Provider, 汽车远程服务提供商</p>
+<h2 id="FOV"><a href="#FOV" class="headerlink" title="FOV"></a>FOV</h2><p>视场角 </p>
+<h2 id="ASIL"><a href="#ASIL" class="headerlink" title="ASIL"></a>ASIL</h2><p>Automotive Safety Integrity Level, 汽车安全完整性等级，有A, B, C, D 4个等级，A级安全性最低，D等级安全性最高</p>
+<h1 id="技术专业术语"><a href="#技术专业术语" class="headerlink" title="技术专业术语"></a>技术专业术语</h1><h2 id="MQTT"><a href="#MQTT" class="headerlink" title="MQTT"></a>MQTT</h2><p>消息队列遥测传输协议，基于发布订阅模式，工作在 TCP/IP协议族上 ,普用于物联网环境（IoT）</p>
+<h2 id="RTP"><a href="#RTP" class="headerlink" title="RTP"></a>RTP</h2><p>Real Time Transport Protocol 实时传输协议,基于UDP  </p>
+<h2 id="RTSP"><a href="#RTSP" class="headerlink" title="RTSP"></a>RTSP</h2><p>Real Time Streaming Protocol实时流传输协议，在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>上位于RTP和RTCP之上，使用TCP或UDP完成数据传输</p>
+<h2 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h2><p>Real Time Messaging Protocol 实时消息传输协议， 基于 TCP/IP协议 .主要用来在Flash/AIR平台和支持RTMP协议的流媒体/交互服务器之间进行音视频和数据通信</p>
+<h2 id="DDS"><a href="#DDS" class="headerlink" title="DDS"></a>DDS</h2><p>Data Distribution Service 数据分发服务，是新一代分布式实时通信中间件协议，采用发布/订阅体系架构，强调以数据为中心，提供丰富的QoS服务质量策略，以保障数据进行实时、高效、灵活地分发，可满足各种分布式实时通信应用需求。以数据为中心的中间件协议和API标准，topic订阅/发布。</p>
+<h2 id="T-BOX"><a href="#T-BOX" class="headerlink" title="T-BOX"></a>T-BOX</h2><p>Telematics BOX，简称车载T-BOX.主机主要用于车内的影音娱乐，以及车辆信息显示. 和后台系统/手机APP通信，实现手机APP的车辆信息显示与控制。</p>
+<h2 id="QNX"><a href="#QNX" class="headerlink" title="QNX"></a>QNX</h2><p>嵌入式操作系统</p>
+<h2 id="SOC"><a href="#SOC" class="headerlink" title="SOC"></a>SOC</h2><p>System on Chip , SoC芯片又称系统级芯片，片上系统，简单的理解就是把几种不同类型的芯片集成到一块芯片上，比如把CPU、GPU、存储器、蓝牙芯片等集成到一个芯片上。如果说CPU是大脑，那么SoC芯片就是大脑、心脏、眼睛和手的系统。通常，SoC芯片中包含一个或多个处理器、存储器、模拟电路模块、数模混合信号模块以及片上可编程逻辑。SoC芯片可以有效地降低电子/信息系统产品的开发成本，缩短开发周期，提高产品的竞争力。</p>
+<h2 id="mDNS"><a href="#mDNS" class="headerlink" title="mDNS"></a>mDNS</h2><p>允许系统在局域网中广播查询其他资源的名称。简单来说：可以通过这个mDNS发现同一个局域网下的其他设备</p>
+<p>mDNS的作用是实现局域网内的服务发现，查询，注册.</p>
+<p>一个主机A进入局域网，开启了mDNS服务，就会向mDNS服务注册自己；另一个主机B就可以通过mDNS服务找到已经注册的主机A。</p>
+<h2 id="OTA"><a href="#OTA" class="headerlink" title="OTA"></a>OTA</h2><p>空中下载技术（Over-the-Air），是通过移动通信的空中接口实现对移动终端设备及SIM卡数据进行远程管理的技术。在小米，更多指手机、电视、智能硬件等硬件的系统升级。</p>
+<h2 id="DLNA"><a href="#DLNA" class="headerlink" title="DLNA"></a>DLNA</h2><p>解决个人PC，消费电器，移动设备在内的无线网络和有线网络的互联互通. 一种解决的方案，一种大家可以遵守的规范. </p>
+<p>DLNA将其整个应用规定成5个功能组件。从下到上依次为：网络互连，网络协议，媒体传输，设备的发现控制和管理，媒体格式</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Brooks
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/06/02/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E6%95%B4%E7%90%86/" title="专业术语整理">http://example.com/2022/06/02/专业术语整理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B1%BD%E8%BD%A6/" rel="tag"># 汽车</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/" rel="prev" title="Linux常用工具集">
+      <i class="fa fa-chevron-left"></i> Linux常用工具集
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E5%BA%A7%E8%88%B1%E9%A2%86%E5%9F%9F%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.</span> <span class="nav-text">智能座舱领域专业术语</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DMS"><span class="nav-number">1.1.</span> <span class="nav-text">DMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OMS"><span class="nav-number">1.2.</span> <span class="nav-text">OMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RMS"><span class="nav-number">1.3.</span> <span class="nav-text">RMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IMS"><span class="nav-number">1.4.</span> <span class="nav-text">IMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IVI"><span class="nav-number">1.5.</span> <span class="nav-text">IVI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IMU"><span class="nav-number">1.6.</span> <span class="nav-text">IMU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DVR"><span class="nav-number">1.7.</span> <span class="nav-text">DVR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVM"><span class="nav-number">1.8.</span> <span class="nav-text">AVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HUD"><span class="nav-number">1.9.</span> <span class="nav-text">HUD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HMI"><span class="nav-number">1.10.</span> <span class="nav-text">HMI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-Car"><span class="nav-number">1.11.</span> <span class="nav-text">Box Car</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAN"><span class="nav-number">1.12.</span> <span class="nav-text">CAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADD"><span class="nav-number">1.13.</span> <span class="nav-text">ADD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCD"><span class="nav-number">1.14.</span> <span class="nav-text">DCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VCCD"><span class="nav-number">1.15.</span> <span class="nav-text">VCCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVP"><span class="nav-number">1.16.</span> <span class="nav-text">AVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AEB"><span class="nav-number">1.17.</span> <span class="nav-text">AEB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACC"><span class="nav-number">1.18.</span> <span class="nav-text">ACC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADAS"><span class="nav-number">1.19.</span> <span class="nav-text">ADAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PA"><span class="nav-number">1.20.</span> <span class="nav-text">PA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TSP"><span class="nav-number">1.21.</span> <span class="nav-text">TSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FOV"><span class="nav-number">1.22.</span> <span class="nav-text">FOV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASIL"><span class="nav-number">1.23.</span> <span class="nav-text">ASIL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-number">2.</span> <span class="nav-text">技术专业术语</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MQTT"><span class="nav-number">2.1.</span> <span class="nav-text">MQTT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RTP"><span class="nav-number">2.2.</span> <span class="nav-text">RTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RTSP"><span class="nav-number">2.3.</span> <span class="nav-text">RTSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RTMP"><span class="nav-number">2.4.</span> <span class="nav-text">RTMP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDS"><span class="nav-number">2.5.</span> <span class="nav-text">DDS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T-BOX"><span class="nav-number">2.6.</span> <span class="nav-text">T-BOX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QNX"><span class="nav-number">2.7.</span> <span class="nav-text">QNX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOC"><span class="nav-number">2.8.</span> <span class="nav-text">SOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mDNS"><span class="nav-number">2.9.</span> <span class="nav-text">mDNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OTA"><span class="nav-number">2.10.</span> <span class="nav-text">OTA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DLNA"><span class="nav-number">2.11.</span> <span class="nav-text">DLNA</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brooks"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Brooks</p>
+  <div class="site-description" itemprop="description">凡心所向，素履所往，生如逆旅，一苇以航。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hyp712" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hyp712" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/hyp.712@163.com" title="E-Mail → hyp.712@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.pdai.tech/" title="https:&#x2F;&#x2F;www.pdai.tech&#x2F;" rel="noopener" target="_blank">Java全栈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://liuwangshu.cn/" title="http:&#x2F;&#x2F;liuwangshu.cn&#x2F;" rel="noopener" target="_blank">刘望舒</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Wed Jul 14 2021 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brooks</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共15.9k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'ocIHvxIoh4If6dnJNstOfALd-gzGzoHsz',
+      appKey     : 'FUf1y4x6sqEemxwX0oMsUg4i',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

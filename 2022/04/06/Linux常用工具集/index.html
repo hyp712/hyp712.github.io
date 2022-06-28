@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="git1234sudo apt-get install git#查看 git版本 git --version">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用工具集">
+<meta property="og:url" content="http://example.com/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/index.html">
+<meta property="og:site_name" content="Brooks">
+<meta property="og:description" content="git1234sudo apt-get install git#查看 git版本 git --version">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-06T12:21:25.000Z">
+<meta property="article:modified_time" content="2022-06-14T03:28:37.711Z">
+<meta property="article:author" content="Brooks">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Linux常用工具集 | Brooks</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Brooks" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a target="_blank" rel="noopener" href="https://github.com/hyp712" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Brooks</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">珍惜生命中的每一次冲动</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i>资源</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="comment fa-fw"></i>留言</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Brooks">
+      <meta itemprop="description" content="凡心所向，素履所往，生如逆旅，一苇以航。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brooks">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux常用工具集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-06 20:21:25" itemprop="dateCreated datePublished" datetime="2022-04-06T20:21:25+08:00">2022-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-14 11:28:37" itemprop="dateModified" datetime="2022-06-14T11:28:37+08:00">2022-06-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">查看 git版本</span> </span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span> 
+
+<h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
+
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim-gtk</span><br></pre></td></tr></table></figure>
+
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3.8</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">找Python3.8位置</span></span><br><span class="line">whereis python3.8</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置软连接</span></span><br><span class="line">cd /usr/bin</span><br><span class="line">ln -s /usr/bin/python3.8 python</span><br></pre></td></tr></table></figure>
+
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a><strong>Typora</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span></span><br><span class="line">wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> add Typora<span class="string">&#x27;s repository</span></span></span><br><span class="line">sudo add-apt-repository &#x27;deb https://typora.io/linux ./&#x27;</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="string"> install typora</span></span></span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+<h2 id="sublime-text3"><a href="#sublime-text3" class="headerlink" title="sublime text3"></a>sublime text3</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">download file</span></span><br><span class="line">wget https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<p>制作安装脚本<code>install_sublime3.sh</code>脚本内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">tar vxjf sublime_text_3_build_*_x64.tar.bz2</span><br><span class="line"></span><br><span class="line">link_subl=&quot;/usr/local/bin/subl&quot;</span><br><span class="line">link_desktop=&quot;/usr/share/applications/sublime_text.desktop&quot;</span><br><span class="line">sublime_home=&quot;/opt/sublime_text_3&quot;</span><br><span class="line">if [[ -d &quot;$sublime_home&quot; ]]; then</span><br><span class="line">    echo &quot;clear $sublime_home&quot;</span><br><span class="line">    sudo rm -rf $sublime_home</span><br><span class="line">    #read -n 1 -p &quot;Press any key to continue...&quot;</span><br><span class="line">fi</span><br><span class="line">sudo mv sublime_text_3 $sublime_home</span><br><span class="line"></span><br><span class="line">if [[ -L $link_subl ]]; then</span><br><span class="line">    echo &quot;clear $link_subl&quot;</span><br><span class="line">    sudo rm -rf $link_subl</span><br><span class="line">    #statements</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [[ -L $link_desktop ]]; then</span><br><span class="line">    echo &quot;clear symbolic $link_desktop&quot;</span><br><span class="line">    sudo rm -rf $link_desktop</span><br><span class="line">    </span><br><span class="line">fi</span><br><span class="line">sudo ln -s $sublime_home/sublime_text $link_subl</span><br><span class="line">sudo ln -s $sublime_home/sublime_text.desktop $link_desktop</span><br></pre></td></tr></table></figure>
+
+<p>添加权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x install_sublime3.sh &amp; ./install_sublime3.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装完成-测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subl install_sublime3.sh</span><br></pre></td></tr></table></figure>
+
+<p>添加桌面启动icon</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">教程：https://www.cnblogs.com/outsrkem/p/12717718.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="sogou"><a href="#sogou" class="headerlink" title="sogou"></a>sogou</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装指南  https://pinyin.sogou.com/linux/help.php</span></span><br><span class="line">sudo apt-get install fcitx</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">官网下载deb包，安装 https://pinyin.sogou.com/linux/</span></span><br><span class="line">sudo dpkg -i sogoupinyin_版本号_amd64.deb</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">重启电脑</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">卸载搜狗拼音输入法</span></span><br><span class="line">sudo apt-get purge sogoupinyin</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">卸载fcitx</span></span><br><span class="line">sudo apt-get purge fcitx </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">彻底卸载 fcitx 及相关配置</span></span><br><span class="line">sudo apt-get autoremove </span><br></pre></td></tr></table></figure>
+
+<h2 id="vlc"><a href="#vlc" class="headerlink" title="vlc"></a>vlc</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install vlc</span><br></pre></td></tr></table></figure>
+
+<h2 id="ffmpeg"><a href="#ffmpeg" class="headerlink" title="ffmpeg"></a>ffmpeg</h2><p>支持的库安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y autoconf automake build-essential git libass-dev libfreetype6-dev libsdl2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev</span><br><span class="line"></span><br><span class="line">sudo apt install libavformat-dev libavcodec-dev libswresample-dev libswscale-dev libavutil-dev libsdl1.2-dev</span><br></pre></td></tr></table></figure>
+
+<p>支持的库介绍</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">libavutil是一个包含简化编程功能的库，包括随机数生成器、数据结构、数学例程、核心多媒体实用程序等。</span><br><span class="line">libavcodec是一个包含音频/视频 解码器和编码器的库。</span><br><span class="line">libavformat是一个库，包含用于多媒体容器格式的合成和拆分的库。</span><br><span class="line">libavdevice是一个包含输入和输出设备的库，用于从许多常见的多媒体输入/输出软件框架(包括Video4Linux, Video4Linux2, VfW, and ALSA）中获取和呈现多媒体输入/输出软件框架。</span><br><span class="line">libavfilter是一个包含媒体过滤器的库。</span><br><span class="line">libswscale是一个执行高度优化的图像缩放和颜色空间/像素格式转换操作的库。</span><br><span class="line">libswressample是一个执行高度优化的音频重采样、重矩阵和示例格式转换操作的库。</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg</span><br><span class="line"></span><br><span class="line">cd ffmpeg</span><br><span class="line"></span><br><span class="line">./configure   --enable-shared  --prefix=/usr/local/ffmpeg  --enable-gpl --enable-libx264  --enable-libx265   </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">./configure可能造成libx264 找不到,换成</span></span><br><span class="line">./configure --enable-static --disable-opencl</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">./configure 可能提示yasm未安装错误</span></span><br><span class="line">sudo apt-get install yasm</span><br></pre></td></tr></table></figure>
+
+<p>编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>增加安装目录的动态链接库:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/ffmpeg/lib:$LD_LIBRARY_PATH</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>查看指令依赖的动态库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd ffmpeg </span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg –version</span><br><span class="line"></span><br><span class="line">brooks@brooks-HP:~/develop/ffmpeg$ ffmpeg -version</span><br><span class="line">ffmpeg version N-106673-g058a1ff9b4 Copyright (c) 2000-2022 the FFmpeg developers</span><br><span class="line">built with gcc 7 (Ubuntu 7.5.0-3ubuntu1~18.04)</span><br><span class="line">configuration: --enable-static --disable-opencl</span><br><span class="line">libavutil      57. 24.101 / 57. 24.101</span><br><span class="line">libavcodec     59. 27.100 / 59. 27.100</span><br><span class="line">libavformat    59. 23.100 / 59. 23.100</span><br><span class="line">libavdevice    59.  6.100 / 59.  6.100</span><br><span class="line">libavfilter     8. 36.100 /  8. 36.100</span><br><span class="line">libswscale      6.  6.100 /  6.  6.100</span><br><span class="line">libswresample   4.  6.100 /  4.  6.100</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="SSH远程连接"><a href="#SSH远程连接" class="headerlink" title="SSH远程连接"></a>SSH远程连接</h2><p>配置了ssh，安装了ssh服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh brooks@10.221.110.76  #远程连接电脑</span><br><span class="line"></span><br><span class="line">scp brooks@10.220.124.2:/home/brooks/walilive.zip ./ #远程拷贝文件到当前目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="SSH远程仓库（两台电脑同步git仓库）"><a href="#SSH远程仓库（两台电脑同步git仓库）" class="headerlink" title="SSH远程仓库（两台电脑同步git仓库）"></a>SSH远程仓库（两台电脑同步git仓库）</h2><p>背景：公司用台式机来开发编译，家里偶尔用笔记本调试，研发。需要将代码同步过来，代码未提交到远程仓库，只在本地仓库。</p>
+<h3 id="1-笔记本上仓库的建立"><a href="#1-笔记本上仓库的建立" class="headerlink" title="1.笔记本上仓库的建立."></a>1.笔记本上仓库的建立.</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://brooks@10.221.110.76:/home/work/car/authome  #远程的仓库位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-PC上仓库的配置"><a href="#2-PC上仓库的配置" class="headerlink" title="2.PC上仓库的配置"></a>2.PC上仓库的配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --local receive.denyCurrentBranch updateInstead</span><br></pre></td></tr></table></figure>
+
+<p>这样使得笔记本端可向PC端推送. 因为正常情况下,git不允许向non-bare仓库进行推送.</p>
+<h3 id="3-演示"><a href="#3-演示" class="headerlink" title="3.演示"></a>3.演示</h3><p>笔记本拉取PC上的仓库:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>笔记本推送更新到PC:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="open-ssl"><a href="#open-ssl" class="headerlink" title="open ssl"></a>open ssl</h2><h3 id="方法一、通过Homebrew安装（推荐）"><a href="#方法一、通过Homebrew安装（推荐）" class="headerlink" title="方法一、通过Homebrew安装（推荐）"></a>方法一、通过Homebrew安装（推荐）</h3><p>打开终端，分别执行以下步骤中的命令：</p>
+<ol>
+<li>检查当前OpenSSL的版本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl version -a</span></span><br><span class="line">OpenSSL 3.0.0-alpha7-dev  (Library: OpenSSL 3.0.0-alpha7-dev ) # 这是更新后的</span><br><span class="line">built on: Fri Sep 11 09:31:01 2020 UTC</span><br><span class="line">... </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">which</span> openssl</span></span><br><span class="line">/usr/bin/openssl # 这是更新前，OpenSSL的路径</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装OpenSSL</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew update</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install openssl</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew link --force openssl</span></span><br></pre></td></tr></table></figure>
+
+<p>重新打开终端，执行<strong>第1步</strong>的命令，检查安装结果。</p>
+<h3 id="方法二、通过编译源代码安装"><a href="#方法二、通过编译源代码安装" class="headerlink" title="方法二、通过编译源代码安装"></a>方法二、通过编译源代码安装</h3><p>打开终端，分别执行以下步骤中的命令：</p>
+<ol>
+<li>下载源代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#速度慢可以替换为国内 码云</span><br><span class="line">$ git clone https://github.com/openssl/openssl.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编译安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> openssl</span><br><span class="line">$ ./Configure</span><br><span class="line">$ make</span><br><span class="line">$ make <span class="built_in">test</span></span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，如果没有出错，openssl将被安装到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local</span><br></pre></td></tr></table></figure>
+
+<p>更准确地说，文件将被安装到以下相应的子文件夹中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin # openssl可执行文件所在目录</span><br><span class="line">/usr/local/lib</span><br><span class="line">/usr/local/include</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>重新打开终端，执行<strong>方法一第1步</strong>的命令，检查安装结果。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Brooks
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/04/06/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86/" title="Linux常用工具集">http://example.com/2022/04/06/Linux常用工具集/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/23/Rxjava1-x-%E5%8D%87%E7%BA%A7%E5%88%B0-Rxjava2-x-%E7%AC%94%E8%AE%B0/" rel="prev" title="Rxjava1.x 升级到 Rxjava2.x">
+      <i class="fa fa-chevron-left"></i> Rxjava1.x 升级到 Rxjava2.x
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/02/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E6%95%B4%E7%90%86/" rel="next" title="专业术语整理">
+      专业术语整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">1.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-number">2.</span> <span class="nav-text">tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim"><span class="nav-number">3.</span> <span class="nav-text">vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python"><span class="nav-number">4.</span> <span class="nav-text">python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora"><span class="nav-number">5.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime-text3"><span class="nav-number">6.</span> <span class="nav-text">sublime text3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sogou"><span class="nav-number">7.</span> <span class="nav-text">sogou</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vlc"><span class="nav-number">8.</span> <span class="nav-text">vlc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ffmpeg"><span class="nav-number">9.</span> <span class="nav-text">ffmpeg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">SSH远程连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%88%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5git%E4%BB%93%E5%BA%93%EF%BC%89"><span class="nav-number">11.</span> <span class="nav-text">SSH远程仓库（两台电脑同步git仓库）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AC%94%E8%AE%B0%E6%9C%AC%E4%B8%8A%E4%BB%93%E5%BA%93%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="nav-number">11.1.</span> <span class="nav-text">1.笔记本上仓库的建立.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-PC%E4%B8%8A%E4%BB%93%E5%BA%93%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">11.2.</span> <span class="nav-text">2.PC上仓库的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%BC%94%E7%A4%BA"><span class="nav-number">11.3.</span> <span class="nav-text">3.演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-ssl"><span class="nav-number">12.</span> <span class="nav-text">open ssl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87Homebrew%E5%AE%89%E8%A3%85%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">12.1.</span> <span class="nav-text">方法一、通过Homebrew安装（推荐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%81%E9%80%9A%E8%BF%87%E7%BC%96%E8%AF%91%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">12.2.</span> <span class="nav-text">方法二、通过编译源代码安装</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brooks"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Brooks</p>
+  <div class="site-description" itemprop="description">凡心所向，素履所往，生如逆旅，一苇以航。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hyp712" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hyp712" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/hyp.712@163.com" title="E-Mail → hyp.712@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.pdai.tech/" title="https:&#x2F;&#x2F;www.pdai.tech&#x2F;" rel="noopener" target="_blank">Java全栈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://liuwangshu.cn/" title="http:&#x2F;&#x2F;liuwangshu.cn&#x2F;" rel="noopener" target="_blank">刘望舒</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Wed Jul 14 2021 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brooks</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共15.9k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'ocIHvxIoh4If6dnJNstOfALd-gzGzoHsz',
+      appKey     : 'FUf1y4x6sqEemxwX0oMsUg4i',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
