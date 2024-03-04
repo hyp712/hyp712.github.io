@@ -31,7 +31,7 @@
 <meta property="og:description" content="抓取系统log1手机拨号界面输入： &amp;#x27;*#*# 284 #*#*&amp;#x27; 	#小米手机支持  系统会自动提示：“正在生成bug报告，大概需要1分钟”,文件再sdcard下。包含bugreport内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-20T14:11:32.000Z">
-<meta property="article:modified_time" content="2022-10-28T08:28:13.516Z">
+<meta property="article:modified_time" content="2023-05-22T03:07:47.952Z">
 <meta property="article:author" content="Brooks">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="ADB">
@@ -240,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-28 16:28:13" itemprop="dateModified" datetime="2022-10-28T16:28:13+08:00">2022-10-28</time>
+                <time title="修改时间：2023-05-22 11:07:47" itemprop="dateModified" datetime="2023-05-22T11:07:47+08:00">2023-05-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -411,7 +411,7 @@
 
 <h2 id="导出Log"><a href="#导出Log" class="headerlink" title="导出Log"></a>导出Log</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -s *:V &gt; ./live.log #全量log</span><br><span class="line">adb logcat -s *:E &gt; ./live.log #Error级别log</span><br><span class="line">adb logcat -s *:F &gt; ./live.log #Fatal级别log</span><br></pre></td></tr></table></figure>
 
-<h2 id="过滤Log"><a href="#过滤Log" class="headerlink" title="过滤Log"></a>过滤Log</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep PK</span><br><span class="line">adb logcat | grep -i PK  #忽略大小写</span><br></pre></td></tr></table></figure>
+<h2 id="过滤Log"><a href="#过滤Log" class="headerlink" title="过滤Log"></a>过滤Log</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep PK</span><br><span class="line">adb logcat | grep -i PK  #忽略大小写</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">获取指定包名的<span class="built_in">log</span></span></span><br><span class="line">adb logcat --pid=$(adb shell pidof -s com.mi.XXX)</span><br></pre></td></tr></table></figure>
 
 <h2 id="adb无线调试"><a href="#adb无线调试" class="headerlink" title="adb无线调试"></a>adb无线调试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">adb connect &lt;手机ip&gt;:5555  <span class="comment">#只要手机不重启，后面就可以不用usb线连接手机了，直接通过网络adb就可以</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">如果重复以上步骤还是Offline的话，使用USB 线将设备与电脑连接。应确保连接成功（可运行 adb devices 看是否能列出该设备）。让设备在 5555 端口监听 TCP/IP 连接，PC端命令行输入：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> adb tcpip 5555</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">断开连接</span></span><br><span class="line">adb disconnect &lt;手机ip&gt;:5555</span><br></pre></td></tr></table></figure>
 
@@ -653,8 +653,8 @@
 
 <div class="copyright">
   
-  &copy; Wed Jul 14 2021 08:00:00 GMT+0800 (GMT+08:00) – 
-  <span itemprop="copyrightYear">2022</span>
+  &copy; Wed Jul 14 2021 08:00:00 GMT+0800 (中国标准时间) – 
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -664,7 +664,7 @@
   </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.9k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
 
